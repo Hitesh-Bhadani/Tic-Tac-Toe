@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tic Tac Toe – Modern UI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Welcome Screen -->
+  <div id="welcome" class="welcome-card animated-bg">
+    <h1>👋 Welcome to Tic Tac Toe!</h1>
+    <form id="playerForm">
+      <label for="player1">First Player:</label>
+      <input type="text" id="player1" placeholder="Enter your name" required />
+      <label for="player2">Second Player:</label>
+      <input type="text" id="player2" placeholder="Enter your name" required />
+      <button type="submit" class="start-btn">Start Game</button>
+    </form>
+  </div>
+
+  <!-- Game Interface -->
+  <div class="main-bg" style="display: none;">
+    <!-- Left GIFs -->
+    <div class="win-gif" id="left-excited">
+      <img src="images/excited.gif" alt="Left Excited Celebration" />
+    </div>
+    <div class="win-gif" id="left-sad">
+      <img src="images/sad.gif" alt="Left Player Sad" />
+    </div>
+
+    <!-- Game Content -->
+    <div class="game-area">
+      <!-- Scoreboard -->
+      <div class="scoreboard">
+        <div class="score score-x">
+          <span id="player-x-name">First Player</span><br />
+          <span id="score-x">0</span>
+        </div>
+        <div class="score score-draw">
+          DRAW<br />
+          <span id="score-draw">0</span>
+        </div>
+        <div class="score score-o">
+          <span id="player-o-name">Second Player</span><br />
+          <span id="score-o">0</span>
+        </div>
+      </div>
+
+      <!-- Game Board -->
+      <div class="game-card">
+        <div class="turn-indicator">
+          <span id="current-player">First Player's turn (X)</span>
+        </div>
+        <div id="board">
+          <!-- Cells -->
+          <div class="cell" data-index="0"></div>
+          <div class="cell" data-index="1"></div>
+          <div class="cell" data-index="2"></div>
+          <div class="cell" data-index="3"></div>
+          <div class="cell" data-index="4"></div>
+          <div class="cell" data-index="5"></div>
+          <div class="cell" data-index="6"></div>
+          <div class="cell" data-index="7"></div>
+          <div class="cell" data-index="8"></div>
+
+          <!-- Visual Win Indicator -->
+          <div id="strike"></div>
+        </div>
+
+        <!-- Status & Controls -->
+        <div id="status-banner"></div>
+        <button id="reset">Reset</button>
+      </div>
+    </div>
+
+    <!-- Right GIFs -->
+    <div class="win-gif" id="right-excited">
+      <img src="images/excited.gif" alt="Right Excited Celebration" />
+    </div>
+    <div class="win-gif" id="right-sad">
+      <img src="images/sad.gif" alt="Right Player Sad" />
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

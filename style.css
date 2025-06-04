@@ -1,0 +1,369 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.main-bg {
+  background: #5c258d;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.win-gif {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  z-index: 1;
+}
+
+#left-excited,
+#left-sad {
+  left: 40px;
+}
+
+#right-excited,
+#right-sad {
+  right: 40px;
+}
+
+.win-gif img {
+  width: 200px;
+  height: auto;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.score {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 90px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  word-break: break-word;
+}
+
+.score-x {
+  background: #40c4ff;
+  color: #222;
+}
+
+.score-o {
+  background: #ffe082;
+  color: #222;
+}
+
+.score-draw {
+  background: #fff;
+  color: #222;
+}
+
+.game-card {
+  background: #2d0849;
+  border-radius: 24px;
+  padding: 32px 24px 24px 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.turn-indicator {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(3, 80px);
+  gap: 12px;
+  margin-bottom: 24px;
+  width: calc(3 * 80px + 2 * 12px);
+  height: calc(3 * 80px + 2 * 12px);
+}
+
+.cell {
+  background: #371f5c;
+  border-radius: 10px;
+  font-size: 2.8rem;
+  color: #40c4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 80px;
+  width: 80px;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+  user-select: none;
+}
+
+.cell.x {
+  color: #40c4ff;
+}
+
+.cell.o {
+  color: #ffe082;
+}
+
+.cell:active {
+  background: #4a2b6a;
+}
+
+.cell:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+#status-banner {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  color: #fff;
+  background: #388e3c;
+  padding: 8px 20px;
+  border-radius: 8px;
+  display: none;
+  font-weight: bold;
+}
+
+
+#strike {
+  position: absolute;
+  background: #fff;
+  border-radius: 3px;
+  z-index: 3;
+  display: none;
+  pointer-events: none;
+  height: 6px;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff;
+  animation: pulse 1s infinite;
+  transition: all 0.3s ease;
+}
+
+button#reset {
+  background: #40c4ff;
+  color: #222;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 12px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+button#reset:hover {
+  background: #0091ea;
+}
+
+/* Welcome Card */
+.welcome-card {
+  background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  max-width: 400px;
+  width: 90%;
+  margin: 2rem auto;
+  text-align: center;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.welcome-card h1 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.welcome-card label {
+  font-weight: bold;
+  text-align: left;
+  color: #fff;
+}
+
+.welcome-card input {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s;
+}
+
+.welcome-card input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.welcome-card input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #fff;
+}
+
+.start-btn {
+  background: #fff;
+  color: #2575fc;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.start-btn:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Animated Background */
+.animated-bg {
+  background: linear-gradient(-45deg, #6a11cb, #2575fc, #6a11cb, #2575fc);
+  background-size: 400% 400%;
+  animation: bgGradient 8s ease infinite;
+  will-change: background-position;
+}
+
+@keyframes bgGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Mobile Styling */
+@media (max-width: 600px) {
+  .main-bg {
+    padding: 12px 0;
+  }
+
+  .scoreboard {
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .score {
+    padding: 10px 7px;
+    font-size: 0.85rem;
+    min-width: 60px;
+  }
+
+  .game-card {
+    padding: 12px 4px 14px 4px;
+  }
+
+  #board {
+    grid-template-columns: repeat(3, 18vw);
+    grid-template-rows: repeat(3, 18vw);
+    gap: 2vw;
+    width: auto;
+    height: auto;
+  }
+
+  .cell {
+    font-size: 2rem;
+    height: 18vw;
+    width: 18vw;
+  }
+
+  .strike-row-0 {
+    top: 9vw;
+  }
+
+  .strike-row-1 {
+    top: 29vw;
+  }
+
+  .strike-row-2 {
+    top: 49vw;
+  }
+
+  .strike-col-0 {
+    left: 9vw;
+    top: 0;
+    height: 100%;
+    width: 12px;
+  }
+
+  .strike-col-1 {
+    left: 29vw;
+    top: 0;
+    height: 100%;
+    width: 12px;
+  }
+
+  .strike-col-2 {
+    left: 49vw;
+    top: 0;
+    height: 100%;
+    width: 12px;
+  }
+
+  .win-gif img {
+    width: 120px;
+  }
+}
+
+@media (max-width: 400px) {
+  .welcome-card {
+    padding: 20px;
+  }
+
+  .game-card {
+    padding: 10px;
+  }
+}
